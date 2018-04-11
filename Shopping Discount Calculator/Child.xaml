@@ -1,0 +1,220 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Shopping_Discount_Calculator.Child"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="LightBlue">
+        <!--Pivot Control-->
+        <phone:Pivot Title="GeekyPanda's Discount Calculator" Name="MyPivot" SelectionChanged="Pivot_SelectionChanged">
+            <!--Pivot item one-->
+            <phone:PivotItem Header="child">
+                <Grid>                   
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--row one: countries-->
+                    <TextBlock Grid.Row="0" Grid.Column="1"
+                               Style="{StaticResource textBlock}"
+                               Text="UK"
+                               />
+                    <TextBlock Grid.Row="0" Grid.Column="2"
+                               Style="{StaticResource textBlock}"
+                               Text="US"
+                               />
+                    <!--row two: sizes-->
+                    <TextBlock Grid.Row="1" Grid.Column="0"
+                               Style="{StaticResource textBlock}"
+                               Text="size:"
+                               />
+                    <TextBlock x:Name="txbUK" Grid.Row="1" Grid.Column="1"
+                               Style="{StaticResource textBlock}"
+                               />
+                    <TextBlock x:Name="txbUS" Grid.Row="1" Grid.Column="2"
+                               Style="{StaticResource textBlock}"
+                               />
+                    <!--row: three-->
+                    <TextBlock Grid.Row="2" Grid.Column="1"
+                               Style="{StaticResource textBlock}"
+                               Text="EU"
+                               />
+                    <TextBlock Grid.Row="2" Grid.Column="2"
+                               Style="{StaticResource textBlock}"
+                               Text="AUS"
+                               />
+                    <!--row four-->
+                    <TextBlock Grid.Row="3" Grid.Column="0"
+                               Style="{StaticResource textBlock}"
+                               Text="size:"
+                               />
+                    <TextBlock x:Name="txbEU" Grid.Row="3" Grid.Column="1"
+                               Style="{StaticResource textBlock}"
+                               />
+                    <TextBlock x:Name="txbAU" Grid.Row="3" Grid.Column="2"
+                               Style="{StaticResource textBlock}"
+                               />
+                    <!--row slider-->
+                    <Slider x:Name="sldChild" Grid.Row="4" Grid.ColumnSpan="3"
+                            Minimum="0" Maximum="12"
+                            ValueChanged="sldChild_ValueChanged"
+                            />
+                    <!--row save button-->
+                    <Button x:Name="btnSave" Grid.Row="5" Grid.ColumnSpan="3"
+                            Tap="btnSave_Tap"
+                            Content="save"
+                            />
+                    <!--row five: appbar space-->
+                    
+                </Grid>
+            </phone:PivotItem>
+
+            <!--Pivot item two-->
+            <phone:PivotItem Header="saves" TabIndex="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="0.1*"/>
+                    </Grid.RowDefinitions>
+                    <ScrollViewer>
+                        <StackPanel>
+                            <Grid Background="YellowGreen">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <CheckBox x:Name="cbxSave01"
+                                          Checked="checkBoxAction_Checked"
+                                          Unchecked="checkBoxAction_UnChecked"
+                                        />
+                                <StackPanel Grid.Column="1">
+                                    <TextBox x:Name="txtName01"
+                                     GotFocus="SelectAll_Focus"
+                                     KeyDown="KeyDown_KeyDown"
+                                     Style="{StaticResource textBoxStyleNoMarin}"  
+                                 />
+                                    <TextBox x:Name="txtSize01"
+                                     GotFocus="SelectAll_Focus"
+                                     KeyDown="KeyDown_KeyDown"
+                                     Style="{StaticResource textBoxStyle}"
+                                 />
+                                </StackPanel>
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <CheckBox x:Name="cbxSave02" 
+                                          Checked="checkBoxAction_Checked"
+                                          Unchecked="checkBoxAction_UnChecked"
+                                        />
+                                <StackPanel Grid.Column="1">
+                                    <TextBox x:Name="txtName02"
+                                     GotFocus="SelectAll_Focus"
+                                     KeyDown="KeyDown_KeyDown"
+                                     Style="{StaticResource textBoxStyleNoMarin}"
+                                 />
+                                    <TextBox x:Name="txtSize02"
+                                     GotFocus="SelectAll_Focus"
+                                     KeyDown="KeyDown_KeyDown"
+                                             Style="{StaticResource textBoxStyle}"
+                                 />
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid Background="YellowGreen">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <CheckBox x:Name="cbxSave03" 
+                                          Checked="checkBoxAction_Checked"
+                                          Unchecked="checkBoxAction_UnChecked"
+                                        />
+                                <StackPanel Grid.Column="1">
+                                    <TextBox x:Name="txtName03"
+                                             GotFocus="SelectAll_Focus"
+                                     KeyDown="KeyDown_KeyDown"
+                                             Style="{StaticResource textBoxStyleNoMarin}"
+                                 />
+                                    <TextBox x:Name="txtSize03"
+                                             GotFocus="SelectAll_Focus"
+                                     KeyDown="KeyDown_KeyDown"
+                                             Style="{StaticResource textBoxStyle}"
+                                 />
+                                </StackPanel>
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <CheckBox x:Name="cbxSave04" 
+                                          Checked="checkBoxAction_Checked"
+                                          Unchecked="checkBoxAction_UnChecked"
+                                        />
+                                <StackPanel Grid.Column="1">
+                                    <TextBox x:Name="txtName04"
+                                             GotFocus="SelectAll_Focus"
+                                     KeyDown="KeyDown_KeyDown"
+                                     Style="{StaticResource textBoxStyleNoMarin}"
+                                 />
+                                    <TextBox x:Name="txtSize04"
+                                             GotFocus="SelectAll_Focus"
+                                     KeyDown="KeyDown_KeyDown"
+                                 Style="{StaticResource textBoxStyle}"
+                                 />
+                                </StackPanel>
+                            </Grid>
+                            <Grid Background="YellowGreen">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <CheckBox x:Name="cbxSave05" 
+                                          Checked="checkBoxAction_Checked"
+                                          Unchecked="checkBoxAction_UnChecked"
+                                        />
+                                <StackPanel Grid.Column="1">
+                                    <TextBox x:Name="txtName05"
+                                             GotFocus="SelectAll_Focus"
+                                     KeyDown="KeyDown_KeyDown"
+                                             Style="{StaticResource textBoxStyleNoMarin}"
+                                 />
+                                    <TextBox x:Name="txtSize05"
+                                             GotFocus="SelectAll_Focus"
+                                     KeyDown="KeyDown_KeyDown"
+                                             Style="{StaticResource textBoxStyle}"
+                                 />
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
+    
+</phone:PhoneApplicationPage>

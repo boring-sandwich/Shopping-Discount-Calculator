@@ -1,0 +1,718 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Shopping_Discount_Calculator.MenSaves"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Gray">
+        <!--Pivot Control-->
+        <phone:Pivot Title="GeekyPanda's Discount Calculator" Name="MyPivot">
+            <!--Pivot item one-->
+            <phone:PivotItem Header="save 1" TabIndex="0">
+                <Grid> 
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                        <CheckBox x:Name="cbxMSave01"
+                                  Checked="checkBoxAction_Checked"
+                                  Unchecked="checkBoxAction_UnChecked"
+                                  />
+                        <StackPanel Grid.Row="0" Grid.Column="1">
+                            <TextBox x:Name="txtMSave01Name"
+                                     IsReadOnly="True"
+                                     MaxLength="19"
+                                     IsEnabled="False"
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                            <TextBox x:Name="txtMSave01Size" Grid.Column="1"
+                                     IsReadOnly="True"
+                                     TextWrapping="Wrap"                                    
+                                     MaxLength="50"
+                                     IsEnabled="False"
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                        </StackPanel>
+                    </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="chest:"
+                                       />
+                            <TextBox x:Name="txtMSave01Chest" Grid.Column="1"
+                                     Style="{StaticResource TextBox2}"                                    
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                                <TextBlock x:Name="txbMSave01Waist" Grid.Column="2"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="waist"
+                                       />
+                        <TextBox x:Name="txtMSave01Waist" Grid.Column="3"
+                                     Style="{StaticResource TextBox2}"                                     
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="hip:"
+                                       />
+                        <TextBox x:Name="txtMSave01Hip" Grid.Column="1"
+                                     Style="{StaticResource TextBox2}"                                     
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                                <TextBlock Grid.Column="2"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="neck:"
+                                       />
+                        <TextBox x:Name="txtMSave01Neck" Grid.Column="3"
+                                     Style="{StaticResource TextBox2}"                                     
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />                            
+                        </Grid>
+                            <Grid Grid.Row="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="sleeve length:"
+                                       />
+                        <TextBox x:Name="txtMSave01Sleeve" Grid.Column="1"
+                                     Style="{StaticResource TextBox2}"
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                            </Grid>
+                            <Grid Grid.Row="4">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="shoulder width:"
+                                       />
+                        <TextBox x:Name="txtMSave01Shoulder" Grid.Column="1"
+                                     Style="{StaticResource TextBox2}"
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                            </Grid>
+                    <Grid Grid.Row="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="inseem length:"
+                                       />
+                        <TextBox x:Name="txtMSave01Inseem" Grid.Column="1"
+                                     Style="{StaticResource TextBox2}"
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                    </Grid>
+                </Grid>
+            </phone:PivotItem>
+
+            <!--Pivot item two-->
+            <phone:PivotItem Header="save 2" TabIndex="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox x:Name="cbxMSave02"
+                                  Checked="checkBoxAction_Checked"
+                                  Unchecked="checkBoxAction_UnChecked"
+                                  />
+                        <StackPanel Grid.Row="0" Grid.Column="1">
+                            <TextBox x:Name="txtMSave02Name" Grid.Column="1"
+                                     IsReadOnly="True"
+                                     MaxLength="19"
+                                     IsEnabled="False"
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                            <TextBox x:Name="txtMSave02Size" Grid.Column="1"
+                                     IsReadOnly="True"
+                                     TextWrapping="Wrap"                                    
+                                     IsEnabled="False"
+                                     MaxLength="50"
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                        </StackPanel>
+                    </Grid>
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="chest:"
+                                       />
+                        <TextBox x:Name="txtMSave02Chest" Grid.Column="1"
+                                     Style="{StaticResource TextBox2}"                                    
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                        <TextBlock x:Name="txbMSave02Waist" Grid.Column="2"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="waist"
+                                       />
+                        <TextBox x:Name="txtMSave02Waist" Grid.Column="3"
+                                     Style="{StaticResource TextBox2}"                                     
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                            </Grid>
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="hip:"
+                                       />
+                        <TextBox x:Name="txtMSave02Hip" Grid.Column="1"
+                                     Style="{StaticResource TextBox2}"                                     
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                                <TextBlock Grid.Column="2"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="neck:"
+                                       />
+                        <TextBox x:Name="txtMSave02Neck" Grid.Column="3"
+                                     Style="{StaticResource TextBox2}"                                     
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                            </Grid>
+                            <Grid Grid.Row="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="sleeve length:"
+                                       />
+                        <TextBox x:Name="txtMSave02Sleeve" Grid.Column="1"
+                                     Style="{StaticResource TextBox2}"
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                            </Grid>
+                            <Grid Grid.Row="4">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="shoulder width:"
+                                       />
+                        <TextBox x:Name="txtMSave02Shoulder" Grid.Column="1"
+                                     Style="{StaticResource TextBox2}"
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                            </Grid>
+                    <Grid Grid.Row="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="inseem length:"
+                                       />
+                        <TextBox x:Name="txtMSave02Inseem" Grid.Column="1"
+                                     Style="{StaticResource TextBox2}"                                     
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                    </Grid>
+                </Grid>
+            </phone:PivotItem>
+
+            <!--Pivot item three-->
+            <phone:PivotItem Header="save 3" TabIndex="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox x:Name="cbxMSave03"
+                                  Checked="checkBoxAction_Checked"
+                                  Unchecked="checkBoxAction_UnChecked"
+                                  />
+                        <StackPanel Grid.Row="0" Grid.Column="1">
+                            <TextBox x:Name="txtMSave03Name" Grid.Column="1"
+                                     IsReadOnly="True"
+                                     MaxLength="19"
+                                     IsEnabled="False"
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                            <TextBox x:Name="txtMSave03Size" Grid.Column="1"
+                                     IsReadOnly="True"
+                                     TextWrapping="Wrap"                                    
+                                     IsEnabled="False"
+                                     MaxLength="50"
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                        </StackPanel>
+                    </Grid>
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="chest:"
+                                       />
+                        <TextBox x:Name="txtMSave03Chest" Grid.Column="1"
+                                     Style="{StaticResource TextBox2}"                                    
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                        <TextBlock x:Name="txbMSave03Waist" Grid.Column="2"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="waist"
+                                       />
+                        <TextBox x:Name="txtMSave03Waist" Grid.Column="3"
+                                     Style="{StaticResource TextBox2}"                                     
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                            </Grid>
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="hip:"
+                                       />
+                        <TextBox x:Name="txtMSave03Hip" Grid.Column="1"
+                                     Style="{StaticResource TextBox2}"                                     
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                                <TextBlock Grid.Column="2"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="neck:"
+                                       />
+                        <TextBox x:Name="txtMSave03Neck" Grid.Column="3"
+                                     Style="{StaticResource TextBox2}"                                     
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                            </Grid>
+                            <Grid Grid.Row="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="sleeve length:"
+                                       />
+                        <TextBox x:Name="txtMSave03Sleeve" Grid.Column="1"
+                                     Style="{StaticResource TextBox2}"
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                            </Grid>
+                            <Grid Grid.Row="4">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="shoulder width:"
+                                       />
+                        <TextBox x:Name="txtMSave03Shoulder" Grid.Column="1"
+                                     Style="{StaticResource TextBox2}"
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                            </Grid>
+                    <Grid Grid.Row="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="inseem length:"
+                                       />
+                        <TextBox x:Name="txtMSave03Inseem" Grid.Column="1"
+                                     Style="{StaticResource TextBox2}"                                     
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                    </Grid>
+                </Grid>
+            </phone:PivotItem>
+
+            <!--Pivot item four-->
+            <phone:PivotItem Header="save 4" TabIndex="3">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox x:Name="cbxMSave04"
+                                  Checked="checkBoxAction_Checked"
+                                  Unchecked="checkBoxAction_UnChecked"
+                                  />
+                        <StackPanel Grid.Row="0" Grid.Column="1">
+                            <TextBox x:Name="txtMSave04Name" Grid.Column="1"
+                                     IsReadOnly="True"
+                                     MaxLength="19"
+                                     IsEnabled="False"
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                            <TextBox x:Name="txtMSave04Size" Grid.Column="1"
+                                     IsReadOnly="True"
+                                     TextWrapping="Wrap"                                    
+                                     MaxLength="50"
+                                     IsEnabled="False"
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                        </StackPanel>
+                    </Grid>
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="chest:"
+                                       />
+                        <TextBox x:Name="txtMSave04Chest" Grid.Column="1"
+                                     Style="{StaticResource TextBox2}"                                    
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                        <TextBlock x:Name="txbMSave04Waist" Grid.Column="2"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="waist"
+                                       />
+                        <TextBox x:Name="txtMSave04Waist" Grid.Column="3"
+                                     Style="{StaticResource TextBox2}"                                     
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                            </Grid>
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="hip:"
+                                       />
+                        <TextBox x:Name="txtMSave04Hip" Grid.Column="1"
+                                     Style="{StaticResource TextBox2}"                                     
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                                <TextBlock Grid.Column="2"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="neck"
+                                       />
+                        <TextBox x:Name="txtMSave04Neck" Grid.Column="3"
+                                     Style="{StaticResource TextBox2}"                                     
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+
+                            </Grid>
+                            <Grid Grid.Row="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="sleeve length:"
+                                       />
+                        <TextBox x:Name="txtMSave04Sleeve" Grid.Column="1"
+                                     Style="{StaticResource TextBox2}"
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                            </Grid>
+                            <Grid Grid.Row="4">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="shoulder width:"
+                                       />
+                        <TextBox x:Name="txtMSave04Shoulder" Grid.Column="1"
+                                     Style="{StaticResource TextBox2}"
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                            </Grid>
+                            <Grid Grid.Row="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="inseem length:"
+                                       />
+                        <TextBox x:Name="txtMSave04Inseem" Grid.Column="1"
+                                     Style="{StaticResource TextBox2}"                                     
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                            </Grid>
+                </Grid>
+            </phone:PivotItem>
+
+            <!--Pivot item five-->
+            <phone:PivotItem Header="save 5" TabIndex="4">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox x:Name="cbxMSave05"
+                                  Checked="checkBoxAction_Checked"
+                                  Unchecked="checkBoxAction_UnChecked"
+                                  />
+                        <StackPanel Grid.Row="0" Grid.Column="1">
+                            <TextBox x:Name="txtMSave05Name" Grid.Column="1"
+                                     IsReadOnly="True"
+                                     MaxLength="19"
+                                     IsEnabled="False"
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                            <TextBox x:Name="txtMSave05Size" Grid.Column="1"
+                                     IsReadOnly="True"
+                                     TextWrapping="Wrap"                                    
+                                     MaxLength="50"
+                                     IsEnabled="False"
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                        </StackPanel>
+                    </Grid>
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="chest:"
+                                       />
+                        <TextBox x:Name="txtMSave05Chest" Grid.Column="1"
+                                     Style="{StaticResource TextBox2}"                                    
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                        <TextBlock x:Name="txbMSave05Waist" Grid.Column="2"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="waist"
+                                       />
+                        <TextBox x:Name="txtMSave05Waist" Grid.Column="3"
+                                     Style="{StaticResource TextBox2}"                                     
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                            </Grid>
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="hip:"
+                                       />
+                        <TextBox x:Name="txtMSave05Hip" Grid.Column="1"
+                                     Style="{StaticResource TextBox2}"                                     
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                                <TextBlock Grid.Column="2"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="neck:"
+                                       />
+                        <TextBox x:Name="txtMSave05Neck" Grid.Column="3"
+                                     Style="{StaticResource TextBox2}"                                     
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                            </Grid>
+                            <Grid Grid.Row="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="sleeve length:"
+                                       />
+                        <TextBox x:Name="txtMSave05Sleeve" Grid.Column="1"
+                                     Style="{StaticResource TextBox2}"
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                            </Grid>
+                            <Grid Grid.Row="4">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="shoulder width:"
+                                       />
+                        <TextBox x:Name="txtMSave05Shoulder" Grid.Column="1"
+                                     Style="{StaticResource TextBox2}"
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                            </Grid>
+                    <Grid Grid.Row="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0"
+                                       Style="{StaticResource TextBlockStyleSmaller}"
+                                       Text="inseem length:"
+                                       />
+                        <TextBox x:Name="txtMSave05Inseem" Grid.Column="1"
+                                     Style="{StaticResource TextBox2}"                                     
+                                     GotFocus="textBox_GotFocus"
+                                     KeyDown="MoveDown_KeyDown"
+                                     />
+                    </Grid>
+                </Grid>
+            </phone:PivotItem>
+
+        </phone:Pivot>
+    </Grid>
+    
+</phone:PhoneApplicationPage>

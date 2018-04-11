@@ -1,0 +1,251 @@
+﻿<phone:PhoneApplicationPage ApplicationBar = "{StaticResource GlobalAppBar}"
+    x:Class="Shopping_Discount_Calculator.Shoes"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="LightSeaGreen">
+        <!--Pivot Control-->
+        <phone:Pivot Title="GeekyPanda's Discount Calculator">
+            <!--Pivot item one-->
+            <phone:PivotItem Header="women">
+                <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+                                   Style="{StaticResource TextBlockStyleSmaller}"
+                                   HorizontalAlignment="Left"
+                               Text="women : shoes"
+                               />
+                        <TextBlock Grid.Row="1" Grid.Column="1"
+                               Style="{StaticResource TextBlockStyleSmaller}"
+                               Text="UK"
+                               />
+                        <TextBlock Grid.Row="1" Grid.Column="2"
+                               Style="{StaticResource TextBlockStyleSmaller}"
+                               Text="US"
+                               />
+                        <TextBlock Grid.Row="1" Grid.Column="3"
+                               Style="{StaticResource TextBlockStyleSmaller}"
+                               Text="EU"
+                               />
+                        <TextBlock Grid.Row="1" Grid.Column="4"
+                               Style="{StaticResource TextBlockStyleSmaller}"
+                               Text="AUS"
+                               />
+                        <TextBlock Grid.Row="2" Grid.Column="0"
+                               Style="{StaticResource TextBlockStyleSmaller}"
+                               Text="size:"
+                               />
+                        <TextBlock x:Name="txbWUKSize" Grid.Row="2" Grid.Column="1"
+                               Style="{StaticResource TextBlockStyleSmaller}"
+                               Foreground="{StaticResource PhoneChromeBrush}"
+                               Text="2.5"
+                               />
+                        <TextBlock x:Name="txbWUSSize" Grid.Row="2" Grid.Column="2"
+                               Style="{StaticResource TextBlockStyleSmaller}"
+                               Foreground="{StaticResource PhoneChromeBrush}"
+                               Text="5"
+                               />
+                        <TextBlock x:Name="txbWEUROSize" Grid.Row="2" Grid.Column="3"
+                               Style="{StaticResource TextBlockStyleSmaller}"
+                               Foreground="{StaticResource PhoneChromeBrush}"
+                               Text="35"
+                               />
+                        <TextBlock x:Name="txbWAUSSize" Grid.Row="2" Grid.Column="4"
+                               Style="{StaticResource TextBlockStyleSmaller}"
+                               Foreground="{StaticResource PhoneChromeBrush}"
+                               Text="3.5"
+                               />
+                        <Slider x:Name="sldWomenShoes" Grid.Row="3" Grid.ColumnSpan="5"
+                            Minimum="0" Maximum="10"
+                            Foreground="{StaticResource PhoneAccentBrush}"
+                            ValueChanged="sldWomenShoes_ValueChanged"
+                            />
+                        <Button x:Name="btnWomenSave" Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2"
+                                Tap="btnSave_Tap"
+                                Content="save"
+                                />
+                    <TextBlock x:Name="txbWNavigation" Grid.Row="5" Grid.ColumnSpan="5"
+                               Tap="navigation_Tap" 
+                               VerticalAlignment="Center"
+                               Style="{StaticResource PhoneTextLargeStyle}"
+                               Text="go to women shoe saves"
+                               />
+                    </Grid>
+            </phone:PivotItem>
+
+            <!--Pivot item two-->
+            <phone:PivotItem Header="men">
+                <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+                                   Style="{StaticResource TextBlockStyleSmaller}"
+                                   HorizontalAlignment="Left"
+                               Text="men : shoes"
+                               />
+                        <TextBlock Grid.Row="1" Grid.Column="1"
+                               Style="{StaticResource TextBlockStyleSmaller}"
+                               Text="UK/AUS"
+                               />
+                        <TextBlock Grid.Row="1" Grid.Column="2"
+                               Style="{StaticResource TextBlockStyleSmaller}"
+                               Text="US"
+                               />
+                        <TextBlock Grid.Row="1" Grid.Column="3"
+                               Style="{StaticResource TextBlockStyleSmaller}"
+                               Text="EU"
+                               />
+                        <TextBlock Grid.Row="2" Grid.Column="0"
+                               Style="{StaticResource TextBlockStyleSmaller}"
+                               Text="size:"
+                               />
+                        <TextBlock x:Name="txbMUKSize" Grid.Row="2" Grid.Column="1"
+                               Style="{StaticResource TextBlockStyleSmaller}"
+                               Foreground="{StaticResource PhoneChromeBrush}"
+                               Text="6"
+                               />
+                        <TextBlock x:Name="txbMUSSize" Grid.Row="2" Grid.Column="2"
+                               Style="{StaticResource TextBlockStyleSmaller}"
+                               Foreground="{StaticResource PhoneChromeBrush}"
+                               Text="6.5"
+                               />
+                        <TextBlock x:Name="txbMEUROSize" Grid.Row="2" Grid.Column="3"
+                               Style="{StaticResource TextBlockStyleSmaller}"
+                               Foreground="{StaticResource PhoneChromeBrush}"
+                               Text="30"
+                               />
+                        <Slider x:Name="sldMenShoes" Grid.Row="3" Grid.ColumnSpan="4"
+                            Minimum="0" Maximum="10"
+                            Foreground="{StaticResource PhoneAccentBrush}"
+                            ValueChanged="sldMensShoes_ValueChanged"
+                            />
+                        <Button x:Name="btnMenSave" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"
+                                Tap="btnSave_Tap"
+                                Content="save"
+                                />
+                    <TextBlock x:Name="txbMNavigation" Grid.Row="5" Grid.ColumnSpan="4"
+                               Tap="navigation_Tap" 
+                                VerticalAlignment="Center"
+                                Style="{StaticResource PhoneTextLargeStyle}"
+                                Text="go to men shoe saves"
+                               />
+                    </Grid>
+            </phone:PivotItem>
+
+            <!--Pivot item three-->
+            <phone:PivotItem Header="child">
+                <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="txbToddlerAndChildTitle" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+                                   Style="{StaticResource TextBlockStyleSmaller}"
+                                   HorizontalAlignment="Left"
+                               Text="child : shoes"
+                               />
+                        <TextBlock Grid.Row="1" Grid.Column="1"
+                               Style="{StaticResource TextBlockStyleSmaller}"
+                               Text="UK/AUS"
+                               />
+                        <TextBlock Grid.Row="1" Grid.Column="2"
+                               Style="{StaticResource TextBlockStyleSmaller}"
+                               Text="US"
+                               />
+                        <TextBlock Grid.Row="1" Grid.Column="3"
+                               Style="{StaticResource TextBlockStyleSmaller}"
+                               Text="EU"
+                               />
+                        <TextBlock Grid.Row="2" Grid.Column="0"
+                               Style="{StaticResource TextBlockStyleSmaller}"
+                               Text="size:"
+                               />
+                        <TextBlock x:Name="txbCUKSize" Grid.Row="2" Grid.Column="1"
+                               Style="{StaticResource TextBlockStyleSmaller}"
+                               Foreground="{StaticResource PhoneChromeBrush}"
+                               Text="10.5"
+                               />
+                        <TextBlock x:Name="txbCUSSize" Grid.Row="2" Grid.Column="2"
+                               Style="{StaticResource TextBlockStyleSmaller}"
+                               Foreground="{StaticResource PhoneChromeBrush}"
+                               Text="11.5"
+                               />
+                        <TextBlock x:Name="txbCEUROSize" Grid.Row="2" Grid.Column="3"
+                               Style="{StaticResource TextBlockStyleSmaller}"
+                               Foreground="{StaticResource PhoneChromeBrush}"
+                               Text="29"
+                               />
+                        <Slider x:Name="sldChildShoes" Grid.Row="3" Grid.ColumnSpan="4"
+                            Minimum="0" Maximum="11" SmallChange="1" LargeChange="1"
+                            Foreground="{StaticResource PhoneAccentBrush}"
+                            ValueChanged="sldChildShoes_ValueChanged"
+                            />
+                        <Button x:Name="btnSwitch" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
+                                Tap="btnSwitch_Tap"
+                                Content="toddler"
+                                />
+                        <Button x:Name="btnChildSave" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"
+                                Tap="btnSave_Tap"
+                                Content="save"
+                                />
+                    <TextBlock x:Name="txbCNavigation" Grid.Row="5" Grid.ColumnSpan="4"
+                               Tap="navigation_Tap" 
+                               VerticalAlignment="Center"
+                                Style="{StaticResource PhoneTextLargeStyle}"
+                                Text="go to child shoe saves"
+                               />
+                </Grid>
+            </phone:PivotItem>            
+        </phone:Pivot>
+    </Grid>
+</phone:PhoneApplicationPage>

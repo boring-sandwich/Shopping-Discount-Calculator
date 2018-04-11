@@ -1,0 +1,222 @@
+﻿<phone:PhoneApplicationPage ApplicationBar="{StaticResource GlobalAppBar}"
+    x:Class="Shopping_Discount_Calculator.settings"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="DeepSkyBlue">
+        <!--Pivot Control-->
+        <phone:Pivot Title="SETTINGS">
+            <!--Pivot item one-->
+            <phone:PivotItem Header="tax">
+                <Grid>
+                    <StackPanel>
+                        <TextBlock x:Name="txbTax" 
+                           HorizontalAlignment="Center" VerticalAlignment="Center"
+                           Style="{StaticResource PhoneTextExtraLargeStyle}"
+                           Text="0.0%"
+                        />
+                        <Slider x:Name="sldTax"
+                        VerticalAlignment="Center" Margin="2"
+                        Foreground="{StaticResource PhoneContrastBackgroundBrush}"
+                        Minimum="0.0" Maximum="25.0" SmallChange="0.1" LargeChange="1"
+                        ValueChanged="Slider_ValueChanged"
+                        />
+                        <TextBlock
+                        Style="{StaticResource PhoneTextLargeStyle}"
+                        Text="currency"
+                        />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <RadioButton x:Name="radPound" GroupName="radTax"
+                                     Grid.Column="0"
+                            />
+                            <RadioButton x:Name="radDollar" GroupName="radTax"
+                                     Grid.Column="1"
+                            />
+                            <RadioButton x:Name="radEuro" GroupName="radTax"
+                                     Grid.Column="2"
+                            />
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </phone:PivotItem>
+
+            <!--Pivot item two-->
+            <phone:PivotItem Header="women">
+                <Grid>
+                    <StackPanel>
+                        <TextBlock
+                        Style="{StaticResource PhoneTextLargeStyle}"
+                        Text="women : country"
+                        />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <RadioButton x:Name="radWomenUK" GroupName="radWomenCountry"
+                                     Grid.Column="0" Content="UK"
+                            />
+                            <RadioButton x:Name="radWomenUS" GroupName="radWomenCountry"
+                                     Grid.Column="1" Content="US"
+                            />
+                            <RadioButton x:Name="radWomenEU" GroupName="radWomenCountry"
+                                     Grid.Column="2" Content="EU"
+                            />
+                            <RadioButton x:Name="radWomenAUS" GroupName="radWomenCountry"
+                                     Grid.Column="3" Content="AUS"
+                            />
+                        </Grid>
+                        <TextBlock
+                        Style="{StaticResource PhoneTextLargeStyle}"
+                        Text="women : shoe"
+                        />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <RadioButton x:Name="radWomenShoeUK" GroupName="radWomenShoeCountry"
+                                     Grid.Column="0" Content="UK"
+                            />
+                            <RadioButton x:Name="radWomenShoeUS" GroupName="radWomenShoeCountry"
+                                     Grid.Column="1" Content="US"
+                            />
+                            <RadioButton x:Name="radWomenShoeEU" GroupName="radWomenShoeCountry"
+                                     Grid.Column="2" Content="EU"
+                            />
+                            <RadioButton x:Name="radWomenShoeAUS" GroupName="radWomenShoeCountry"
+                                     Grid.Column="3" Content="AUS"
+                            />
+                        </Grid>
+                        <Button x:Name="WClear"
+                                Tap="WClear_Tap"
+                                Content="clear"/>
+                    </StackPanel>
+                </Grid>
+            </phone:PivotItem>
+
+            <!--Pivot item three-->
+            <phone:PivotItem Header="men">
+                <Grid>
+                    <StackPanel>
+                        <TextBlock
+                        Style="{StaticResource PhoneTextLargeStyle}"
+                        Text="men : country"
+                        />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <RadioButton x:Name="radMenUKUSAUS" GroupName="radMenCountry"
+                                     Grid.Column="0" Content="UK/US/AUS"
+                            />
+                            <RadioButton x:Name="radMenEU" GroupName="radMenCountry"
+                                     Grid.Column="1" Content="EU"
+                            />
+                        </Grid>
+                        <TextBlock
+                        Style="{StaticResource PhoneTextLargeStyle}"
+                        Text="men : shoe"
+                        />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <RadioButton x:Name="radMenShoeUK" GroupName="radMenshoeCountry"
+                                     Grid.Column="0" Content="UK/AUS"
+                            />
+                            <RadioButton x:Name="radMenShoeUS" GroupName="radMenShoeCountry"
+                                     Grid.Column="1" Content="US"
+                            />
+                            <RadioButton x:Name="radMenShoeEU" GroupName="radMenShoeCountry"
+                                     Grid.Column="2" Content="EU"
+                            />
+                        </Grid>
+                        <Button x:Name="MClear"
+                                Tap="MClear_Tap"
+                                Content="clear"/>
+                    </StackPanel>
+                </Grid>
+            </phone:PivotItem>
+
+            <!--Pivot item four-->
+            <phone:PivotItem Header="child">
+                <Grid>
+                    <StackPanel>
+                        <TextBlock
+                        Style="{StaticResource PhoneTextLargeStyle}"
+                        Text="child : country"
+                        />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <RadioButton x:Name="radChildUK" GroupName="radChildCountry"
+                                     Grid.Column="0" Content="UK"
+                            />
+                            <RadioButton x:Name="radChildUS" GroupName="radChildCountry"
+                                     Grid.Column="1" Content="US"
+                            />
+                            <RadioButton x:Name="radChildEU" GroupName="radChildCountry"
+                                     Grid.Column="2" Content="EU"
+                            />
+                            <RadioButton x:Name="radChildAUS" GroupName="radChildCountry"
+                                     Grid.Column="3" Content="AUS"
+                            />
+                        </Grid>
+                        <TextBlock
+                        Style="{StaticResource PhoneTextLargeStyle}"
+                        Text="child : shoe"
+                        />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <RadioButton x:Name="radChildShoeUK" GroupName="radChildShoeCountry"
+                                     Grid.Column="0" Content="UK/AUS"
+                            />
+                            <RadioButton x:Name="radChildShoeUS" GroupName="radChildShoeCountry"
+                                     Grid.Column="1" Content="US"
+                            />
+                            <RadioButton x:Name="radChildShoeEU" GroupName="radChildShoeCountry"
+                                     Grid.Column="2" Content="EU"
+                            />
+                        </Grid>
+                        <Button x:Name="CClear"
+                                Tap="CClear_Tap"
+                                Content="clear"/>
+                    </StackPanel>
+                </Grid>
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
+    
+</phone:PhoneApplicationPage>
